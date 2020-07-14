@@ -56,10 +56,8 @@ If proven guilty, I won't be credited any points for this endeavor.
                            $auth_url = $g_client->createAuthUrl();
                            echo "<br><a href='$auth_url'>Login With Google</a>";
                            
-                           //Step 3 : Get the authorization  code
                            $code = isset($_GET['code']) ? $_GET['code'] : NULL;
                            
-                           //Step 4: Get access token
                            if(isset($code)) {
                                   try {
                                        $token = $g_client->fetchAccessTokenWithAuthCode($code);
