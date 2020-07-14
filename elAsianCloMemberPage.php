@@ -8,10 +8,11 @@ I am well aware of the policies stipulated in the handbook regarding academic di
 If proven guilty, I won't be credited any points for this endeavor.
 */
 include 'db_connection.php';
+include ('elAsianCloGoogleApi.php');
 
 if(isset($_POST['logout'])){
 	session_destroy();
-	header('Location: elAsianCloLogin.php');
+	header('Location: elAsianCloLoginPage.php');
 	
 }
 ?>
@@ -69,7 +70,7 @@ if(isset($_POST['logout'])){
 	</form>
 	</div>
 	<div class="shoppingCart">
-		<a href="#"><img src="http://localhost/pictures/shoppingBag.png" alt="Shopping Bag" style="width:12%;">
+		<a href="elAsianCloShoppingCart.php"><img src="http://localhost/pictures/shoppingBag.png" alt="Shopping Bag" style="width:12%;">
 		</a>
 	</div>
 	</div>

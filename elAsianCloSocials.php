@@ -41,12 +41,11 @@ include 'db_connection.php';
 	</form>
 	</div>
 	<div class="shoppingCart">
-		<a href="#"><img src="http://localhost/pictures/shoppingBag.png" alt="Shopping Bag" style="width:12%;">
+		<a href="http://localhost/elAsianCloShoppingCart.php"><img src="http://localhost/pictures/shoppingBag.png" alt="Shopping Bag" style="width:12%;">
 		</a>
 	</div>
 	</div>
 	<div class="Membership">
-		<a href="fhttp://localhost/elAsianCloSignUp.php"><h4>Sign Up</h4></a>
 		<a href="http://localhost/elAsianCloMemberPage.php#"><h4>Profile</h4></a>
 	</div>
 	

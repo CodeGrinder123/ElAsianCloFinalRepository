@@ -7,15 +7,19 @@ I have not copied from my classmate, friend, nor any unauthorized resource.
 I am well aware of the policies stipulated in the handbook regarding academic dishonesty. 
 If proven guilty, I won't be credited any points for this endeavor.
 */
-include 'db_connection.php';
+session_start();
+require_once("elAsianCloShoppingCartDB.php");
+$db_handle = new DBcontroller();
 	if(isset($_POST['login'])){
-		header("Location: elAsianCloShirts.php");
+		header("Location: elAsianClo.php");
 	}
 ?>
+
 <!DOCTYPE html>
 <head>
 <meta charset = "UTF-8">
-<title>Shirts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Best Seller</title>
 <link rel = "stylesheet" type = "text/css" href = "elAsianCloBestSeller.css"/>
 </head>>
 <body>
@@ -33,40 +37,51 @@ include 'db_connection.php';
 		<div class="list"><h2>SHIRTS</h2></div>
 	<div class="searchIcon">
 	<form method="POST" action="elAsianCloSearch.php">
-		<input type="Search" placeholder="Items">
+		<input class="searchItem" type="Search" placeholder="Items">
 		<a href="#"><img src="http://localhost/pictures/searchIcon.png" alt="Search" style="width: 4%;">
 		</a>
 	</form>
 	</div>
 	<div class="shoppingCart">
-		<a href="#"><img src="http://localhost/pictures/shoppingBag.png" alt="Shopping Bag" style="width:12%;">
+		<a href="elAsianCloShoppingCart.php"><img src="http://localhost/pictures/shoppingBag.png" alt="Shopping Bag" style="width:12%;">
 		</a>
 	</div>
 	</div>
 	<div class="Membership">
-		<a href="http://localhost/elAsianCloSignUp.php"><h4>Sign Up</h4></a>
 		<a href="http://localhost/elAsianCloMemberPage.php"><h4>Profile</h4></a>
 	</div>
-	<div class="itemContainer">
-	<div class="invertedEyeTee">
-		<img src="http://localhost/pictures/Shirts/mata.jpg" alt="Inverted Eye Tee" style="width: 100%;">
-		<p>Inverted Eye Tee <span class="price"> Php.800.00</span><br /></p>
-	</div>
-	<div class="indianTee">
-		<img src="http://localhost/pictures/Shirts/indiancolored.jpg" alt="Indian Tee" style="width: 100%;">
-		<p>Indian Tee <span class="price"> Php.800.00</span><br /></p>
-	</div>
-	</div>
-	<br>
-	<div class="itemContainer">
-	<div class="KidlatTee">
-		<img src="http://localhost/pictures/Shirts/kidlat%20colored.jpg" alt="Kidlat Tee" style="width: 100%;">
-		<p>Kidlat Tee <span class="price"> Php.750.00</span><br /></p>
-	</div>
-	<div class="mataTee">
-		<img src="http://localhost/pictures/Shirts/muka1.jpg" alt="Mata Tee" style="width: 100%;">
-		<p>Mata Tee <span class="price"> Php.750.00</span><br /></p>
-	</div>	
-	</div>
+<div class="itemContainer">
+	<?php
+	$product_array = $db_handle->runQuery("SELECT * FROM tblproduct ORDER BY id ASC");
+	if (!empty($product_array)) { 
+		foreach($product_array as $key=>$value){
+	?>
+		<div class="product-item">
+			<form method="post" action="elAsianCloShoppingCart.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+			<div class="product-image">
+				<img src="<?php echo $product_array[$key]["image"]; ?>">
+			</div>
+		<div class="product-tile-footer">
+			<div class="product-title">
+				<?php echo $product_array[$key]["name"]; ?>
+			</div>
+			<div class="product-price">
+				<?php echo "Php. ".$product_array[$key]["price"]; ?>
+			</div>
+			<div class="cart-action">
+				<input type="text" class="product-quantity" name="quantity" value="1" size="2" />
+				<input type="submit" value="Add to Cart" class="btnAddAction" />
+				
+			</div>
+		</div>
+			</form>
+		</div>
+		
+	<?php
+		}
+	}
+	?>
+</div>
+
 </body>
 </html>

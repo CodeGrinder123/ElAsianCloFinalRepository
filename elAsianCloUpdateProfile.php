@@ -9,6 +9,8 @@ If proven guilty, I won't be credited any points for this endeavor.
 */
 include 'db_connection.php'; 
 
+session_start();
+
 $f_name = $_POST['fname'];
 $s_name = $_POST['sname'];
 $age = $_POST['age'];
@@ -28,8 +30,10 @@ if(isset($_POST['update'])){
 		}
 } else if(isset($_POST['Delete'])){
 	if($conn->query($sqlDelete)){
-			$homeFile = file_get_contents('http://localhost/elAsianCloLogin.php');
+			echo '<script>alert("Your Account has been deleted.")</script>';
+			$homeFile = file_get_contents('http://localhost/elAsianCloLoginPage.php');
 			echo $homeFile;
+			session_destroy();
 		} else {
 			$retryFile = file_get_contents('http://localhost/elAsianCloMemberPage.php');
 			echo $retryFile;

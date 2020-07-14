@@ -1,0 +1,76 @@
+body {
+    margin-top: 20px;
+    background-color: rgb(43, 13, 30);
+    font-family: helvetica;
+    overflow-x: hidden;
+}
+.headerContainer{
+    text-align: center;
+    font-family: helvetica;
+    position: relative;
+    text-align: center;
+    color: #f5f5f5;
+}
+.brandName{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}	
+.brandMotto{
+    position: absolute;
+    top: 60%;
+    left: 49.5%;
+    transform: translate(-50%, -50%);
+}
+.container{
+    position: absolute;
+    left: 50%;
+    top: 110%;
+    transform: translate(-50%, -50%);
+}
+.no-records {
+	text-align: center;
+	clear: both;
+	margin: 38px 0px;
+}
+.homeButton{
+    color: white;
+}
+.Membership{
+    font-family: helvetica;
+    color: #f5f5f5;
+    position: fixed;
+    top: 35px;
+    left: 30px;
+}
+ul{
+    padding: 5px;
+    color: rgba(255,255,255,1);
+    background: black;
+    background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+    background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+    background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+    line-height: 28px;
+    text-align: center;
+    position: relative;
+    bottom: 40px;
+    margin: -3.5px;
+    height: 40px;
+    width: 1357px;
+}
+h1{
+    color: #f5f5f5;
+    font-size: 70px;
+    padding: -100px;
+}
+@media (max-width: 500px){
+    h1{
+        font-size: 36px;
+        padding: 5px;
+    }
+    p{
+        font-size: 20px;
+        line-height: 24px;
+    }
+}

@@ -16,7 +16,7 @@
 		top: 17.5px;
 		right: -650px;
 	} 
-	input{
+	.searchItem{
 		border: 0;
 		padding:7px;
 		font-size: 12px;
@@ -48,7 +48,8 @@
 	}
 	body{
 		background-color: black;
-		
+		font-family: helvetica;
+		overflow-x: hidden;
 	}
 	a{
 		color: #f5f5f5;
@@ -70,7 +71,7 @@
 		position: relative;
 		bottom: 50px;
 		margin: -3.5px;
-		height: 40px;
+		height: 43px;
 		width: 1346px;
 	}
 	li{
@@ -78,58 +79,81 @@
 		padding: 0px 10px 0px 10px;
 	}
 	p{
-	  font-family: helvetica;
-	  color: rgba(255,255,255,1);
-	  background: black;
-	  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
-	  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
-	  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
-	  padding: 10px;
-	  line-height: 28px;
-	  text-align: justify;
-	  position: relative;
-	  bottom: 50px;
-	  margin: 0;
-	  height: 30px;
-	  transition: height .5s;
-	  -webkit-transition: height .5s;
-	  -moz-transition: height .5s;
-	  width: 625px;
+		font-family: helvetica;
+		color: rgba(255,255,255,1);
+		background: black;
+		background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+		background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+		background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+		padding: 10px;
+		line-height: 28px;
+		text-align: justify;
+		position: relative;
+		bottom: 50px;
+		margin: 0;
+		height: 30px;
+		transition: height .5s;
+		-webkit-transition: height .5s;
+		-moz-transition: height .5s;
+		width: 625px;
 	}
 	.list{
 		height: auto;
 		color: #f5f5f5;
 	}
+	footer.ARRFooter{
+		position: absolute;
+		margin: 10px;
+		color: #5e5e5e;
+		font-family: helvetica;
+		font-size: 6px;
+		top: 145%;
+	}
+	#itemContainer{
+		margin: 40px;
+	}
 	.itemContainer{
-		display: flex;
+		margin-left: 105px;
 	}
-	.invertedEyeTee{
-		position: relative;
-		margin: 0px;
-		top: 18px;
-		flex: 33.33%;
-		padding: 5px;
+	.product-item {
+		float: left;
+		background: #ffffff;
+		margin: 30px 30px 0px 0px;
+		border: #E0E0E0 1px solid;
 	}
-	.indianTee{
-		position: relative;
-		margin: 15px;
-		top: 2px;
-		flex: 33.33%;
-		padding: 5px;		
+	.product-image {
+		height: 155px;
+		width: 250px;
+		background-color: black;
 	}
-	.KidlatTee{
-		position: relative;
-		margin: 0px;
-		top: -70px;
-		flex: 33.33%;
-		padding: 5px;
+	.product-title {
+		margin-bottom: 20px;
 	}
-	.mataTee{
-		position: relative;
-		margin: 15px;
-		top: -85px;
-		flex: 33.33%;
-		padding: 5px;
+	.product-price {
+		float: left;
+	}
+	.product-quantity {
+		padding: 5px 10px;
+		border-radius: 3px;
+		border: #E0E0E0 1px solid;
+	}
+	.product-tile-footer {
+		padding: 15px 15px 0px 15px;
+		overflow: auto;
+	}
+	.cart-action {
+		float: right;
+	}
+	.btnAddAction {
+		padding: 5px 10px;
+		margin-left: 5px;
+		background-color: #efefef;
+		border: #E0E0E0 1px solid;
+		color: #211a1a;
+		float: right;
+		text-decoration: none;
+		border-radius: 3px;
+		cursor: pointer;
 	}
 	@media (max-width: 500px){
 		h1{

@@ -7,19 +7,32 @@ I have not copied from my classmate, friend, nor any unauthorized resource.
 I am well aware of the policies stipulated in the handbook regarding academic dishonesty. 
 If proven guilty, I won't be credited any points for this endeavor.
 */
+
 include 'db_connection.php';
 
-	$sql = "SELECT user_name, password FROM membership";
+if(isset($_POST['login'])){
+	session_start();
+    $uname = $conn->real_escape_string($_POST['username']);
+    $password = $conn->real_escape_string($_POST['password']);
+
+	$sql = "SELECT count(*) AS cntUser FROM membership WHERE user_name='".$uname."' AND password='".$password."'";
 	$result = $conn->query($sql);
-	
-	while($row = $result->fetch_assoc()){
-		if($_POST['username'] == $row["user_name"] && $_POST['password'] == $row["password"]){ 
-			$homeFile =  file_get_contents('http://localhost/elAsianClo.php');
-			echo $homeFile;
-		} else {
-			$retryFile = file_get_contents('http://localhost/elAsianCloLoginFAILED.php'); 
-			echo $retryFile;
-		}
+	$row = $result->fetch_assoc();
+
+	$count = $row['cntUser'];
+	if($count > 0){
+		echo '<script>alert("Welcome back to El Asian Clo!")</script>';
+		$homeFile =  file_get_contents('http://localhost/elAsianClo.php');
+		echo $homeFile;
+	} else{
+		$retryFile = file_get_contents('http://localhost/elAsianCloLoginPage.php'); 
+		echo $retryFile;
+		echo '<script>alert("Incorrect username or password!")</script>';
 		exit();
 	}
+} else if(isset($_POST['register'])){
+	$signUpFile = file_get_contents('http://localhost/elAsianCloSignUpPage.php');
+	echo $signUpFile;
+
+} 
 ?>
